@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Pedido</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url(img.jpg) no-repeat;
+            margin: 0px;
+            padding: 0;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-size: cover;
+    background-position: center;
+    backdrop-filter: blur(5.5px);
+
+        }
+
+h2 {
+    color: #1d1c1c;
+    text-align: center;
+    margin-bottom: 0px;
+    text-transform: uppercase;
+    text-shadow: 
+            8px 8px 8px rgba(255, 255, 255, 0.7), /* Sombra superior izquierda */
+            -8px -8px 8px rgba(255, 255, 255, 0.7), /* Sombra inferior derecha */
+            8px -8px 8px rgba(255, 255, 255, 0.7), /* Sombra superior derecha */
+            -8px 8px 8px rgba(255, 255, 255, 0.7); /* Sombra inferior izquierda */
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    backdrop-filter: blur(10px); /* Ajusta el valor de difuminado según tus preferencias */
+    font-weight: bold;
+}
+
+        form {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 400px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+            color: #555;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .custom-file-upload {
+            border: 1px solid #ccc;
+            display: inline-block;
+            padding: 6px 12px;
+            cursor: pointer;
+            background-color: #4fd053;
+            color: #fff;
+            border-radius: 4px;
+        }
+
+        .image-preview {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .image-preview img {
+            max-width: 100%;
+            max-height: 200px;
+            margin-top: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Formulario de Pedido</h2>
+
+<form action="index.php" method="post" enctype="multipart/form-data" id="formulario">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
+
+    <label for="correo">Correo:</label>
+    <input type="email" id="correo" name="correo" placeholder="Correo" required>
+
+    <label for="pedido">Pedido:</label>
+    <textarea id="pedido" name="pedido" placeholder="Especifica tu pedido" required></textarea>
+
+    <label for="imagen" class="custom-file-upload">
+        <input type="file" id="imagen" name="imagen" accept="image/*" onchange="mostrarVistaPrevia()">
+        Seleccionar Imagen
+    </label>
+
+    <div class="image-preview" id="vista-previa">
+        <img src="" alt="Vista previa de la imagen" style="display: none">
+    </div>
+
+    <input type="submit" value="Enviar Pedido" name="enviar">
+</form>
+
+<script>
+    function mostrarVistaPrevia() {
+        var inputImagen = document.getElementById('imagen');
+        var vistaPrevia = document.getElementById('vista-previa');
+        var imagenPreview = vistaPrevia.querySelector('img');
+
+        if (inputImagen.files && inputImagen.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                imagenPreview.src = e.target.result;
+                imagenPreview.style.display = 'block';
+            }
+
+            reader.readAsDataURL(inputImagen.files[0]);
+        }
+    }
+</script>
+
+</body>
+</html>

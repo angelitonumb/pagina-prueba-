@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitud de Producto Personalizado</title>
+</head>
+<body>
+
+    <h2>Solicitud de Producto Personalizado</h2>
+
+    <form action="procesar_formulario.php" method="post" enctype="multipart/form-data">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="descripcion">Descripción del producto:</label>
+        <textarea id="descripcion" name="descripcion" rows="4" required></textarea>
+
+        <label for="imagen">Adjuntar Imagen:</label>
+        <input type="file" id="imagen" name="imagen" accept="image/*" required>
+
+        <button type="submit">Enviar Solicitud</button>
+    </form>
+
+</body>
+</html>

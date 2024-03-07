@@ -1,0 +1,55 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+.header-background {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.header-image {
+    width: 50%;
+    height: auto;
+    opacity: 0.8;
+}
+
+.header-title {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'cursive';
+    font-size: 3em;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.catalogo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.producto {
+    margin: 20px;
+    text-align: center;
+}
+
+.producto-imagen {
+    width: 50%;
+    height: auto;
+}
+
+.producto-titulo {
+    margin: 10px 0;
+}
+
+.producto-precio {
+    color: #2ecc71;
+    font-weight: bold;
+}
